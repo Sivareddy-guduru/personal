@@ -6,20 +6,19 @@ package com.techolution.puzzles;
 public class LargestSubsetSum {
 
     static long[] maxSubsetSum(int[] k) {
-        long[] result = new long[k.length];
-        int j = 0;
-        while (j < k.length) {
-            long count = 1;
-            for (int i = 2; i <= k[j]/2; i++) {
-                if (k[j] % i == 0) {
-                    count += i;
+        int length = k.length;
+        long[] maxSum = new long[length];
+        long sum = 0;
+        for (int i = 0; i < length; i++) {
+            for (int j = 1; j <= k[i] / 2; j++) {
+                if (k[i] % j == 0) {
+                    sum = sum + j;
                 }
             }
-            result[j] = count + k[j];
-            j++;
-
+            maxSum[i] = sum + k[i];
+            sum = 0;
         }
-        return result;
+        return maxSum;
     }
 }
 
