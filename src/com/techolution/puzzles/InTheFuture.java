@@ -8,7 +8,7 @@ public class InTheFuture {
     static int minNum(int A, int K, int P) {
 
         int count = 1;
-        if (K <= A) {
+        if (A >= K) {
             return -1;
         }
         while (K <= A + P) {
